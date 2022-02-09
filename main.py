@@ -12,7 +12,6 @@ def setup():
     freq = open('words.txt', 'r+')
     lines = freq.readlines()
     freq.seek(0)
-    print(len(lines))
     count = 0
     for line in lines:
         line = str(line)
