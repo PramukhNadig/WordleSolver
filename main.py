@@ -4,7 +4,10 @@
 # Use letters and somehow allow for duplicate letters, (maybe don't allow for duplicate letters until search space is small enough)
 # Get list of words lol
 #figure out GUI
-
+class Color():
+    GREEN=2
+    YELLOW=1
+    GRAY=0
 def setup():
     freq = open('words.txt', 'r+')
     lines = freq.readlines()
