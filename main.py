@@ -7,11 +7,11 @@
 import math
 
 wordsAndFreq = {}
-lettersInWord = []
 class Color():
     GREEN=2
     YELLOW=1
     GRAY=0
+
 def setup():
     freq = open('words.txt', 'r+')
     lines = freq.readlines()
@@ -49,16 +49,26 @@ def takeOutLetter(letter, position):
 
 def takeOutLetterY(letter, position):
     position = position -1
-    lettersInWord.append(letter)
     for word in wordsAndFreq.copy().keys():
         if((word[position] == letter) or (letter not in word)):
             del wordsAndFreq[word]
 
-def update():
+def takeOutLetterGR(letter, position):
+    position = position -1
     for word in wordsAndFreq.copy().keys():
-        for i in range(len(lettersInWord)):
-            if(lettersInWord[i] in word):
-                word = word.replace(lettersInWord[i], "", 1)
+        if(not(word[position] == letter)):
+            del wordsAndFreq[word]
+
+def getWordArray(word, colors):
+    for i in range(len(word)):
+        if(colors[i] == Color.GREEN):
+            takeOutLetterGR(word[i], i+1)
+        elif(colors[i] == Color.GRAY):
+            takeOutLetterG(word[i])
+        elif(colors[i] == Color.YELLOW):
+            takeOutLetterY(word[i], i+1)
+    return wordsAndFreq
+
 
 
 def sigmoid(word):
@@ -67,28 +77,7 @@ def sigmoid(word):
 def main():
     setup()
     countWords()
-    takeOutLetterG('f')
-    takeOutLetterG('l')
-    takeOutLetterG('a')
-    takeOutLetterG('n')
-    takeOutLetterG('k')   
-    takeOutLetterG('w')
-    takeOutLetterG('h')
-    takeOutLetterG('i')
-    takeOutLetterG('c')
-    takeOutLetterG('h')    
-    takeOutLetterG('g')
-    takeOutLetterY('r', 2)
-    takeOutLetterG('o')
-    takeOutLetterG('u')
-    takeOutLetterG('p')
-    takeOutLetterY('e', 1)
-    takeOutLetterG('v')
-    takeOutLetterY('e', 3)
-    takeOutLetterY('r', 4)
-    takeOutLetterG('y')
-
-
+    getWordArray('smart', [Color.YELLOW, Color.GRAY, Color.GRAY, Color.GRAY, Color.YELLOW])
     sorted(wordsAndFreq.keys())
     print(wordsAndFreq)
 
