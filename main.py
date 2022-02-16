@@ -100,6 +100,12 @@ def main():
     countWords()
     getWordArray('smart', arr[220])
     getWordArray('smrek', [2, 2, 1, 0, 0])
+
+
+def main():
+    setup()
+    countWords()
+    getWordArray('smart', [Color.YELLOW, Color.GRAY, Color.GRAY, Color.GRAY, Color.YELLOW])
     sorted(wordsAndFreq.keys())
     print(wordsAndFreq)
 
