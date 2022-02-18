@@ -53,8 +53,6 @@ def takeOutLetter(letter, position):
         takeOutLetterG(letter)
     else:
         for word in wordsAndFreq.copy().keys():
-            if(word == 'caulk'):
-                print(":(")
             if((word[position] == letter)):
                 del wordsAndFreq[word]
 
@@ -81,7 +79,13 @@ def getWordArray(word, colors):
             takeOutLetter(word[i], i+1)
         elif(colors[i] == Color.YELLOW):
             takeOutLetterY(word[i], i+1)
+    printTop10()
     return wordsAndFreq
+
+def printTop10():
+    sorted(wordsAndFreq.values())
+    arr = list(wordsAndFreq.keys())
+    print((arr[:10]))
 
 
 
@@ -103,9 +107,11 @@ def main():
     setup()
     countWords()
     print(len(getAllPermutationsColors()))
-    getWordArray('penis', [0,0,0,0,2])
-    sorted(wordsAndFreq.keys())
-    print(wordsAndFreq)
+
+    getWordArray('which', [0,0,0,1,0])
+    getWordArray('local', [1, 0, 1, 1, 0])
+    getWordArray('class', [2, 1, 1, 0 ,0])
+    getWordArray('cable', [2, 2, 0, 2, 0])
 
 if __name__ == "__main__":
     main()
