@@ -108,10 +108,10 @@ def main():
     countWords()
     print(len(getAllPermutationsColors()))
 
-    getWordArray('which', [0,0,0,1,0])
-    getWordArray('local', [1, 0, 1, 1, 0])
-    getWordArray('class', [2, 1, 1, 0 ,0])
-    getWordArray('cable', [2, 2, 0, 2, 0])
+    getWordArray('crane', [0,0,0,0,2])
+    getWordArray('house', [0,2,0,0,2])
+    getWordArray('movie', [0,2,0,0,2])
+    getWordArray('lodge', [0,2,2,2,2])
 
 if __name__ == "__main__":
     main()
