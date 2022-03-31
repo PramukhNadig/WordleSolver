@@ -1,8 +1,8 @@
 #!/bin/python3
 ##############################################################
 # Create rankings based on usage of word using sigmoid function
-# Use letters and somehow allow for duplicate letters, (maybe don't allow for duplicate letters until search space is small enough)
-# Get list of words lol
+# Use letters and somehow allow for duplicate letters, (maybe don't allow for duplicate letters until search space is small enough) DONE
+# Get list of words DONE
 #figure out GUI
 
 #tweak takeoutletterG such that duplicates are handled.
